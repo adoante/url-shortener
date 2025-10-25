@@ -24,7 +24,7 @@ export function AuthCard() {
 	useEffect(() => {
 		const fetchUser = async () => {
 			try {
-				const res = await fetch("/me", { credentials: "include" })
+				const res = await fetch("/auth/me", { credentials: "include" })
 				if (!res.ok) throw new Error("Failed to fetch user")
 				const data: SupabaseUser | null = await res.json()
 				setUser(data)
