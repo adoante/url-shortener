@@ -60,10 +60,7 @@ export function AuthCard() {
 					<Button
 						variant="outline"
 						onClick={() => {
-							void fetch("/auth/logout", {
-								method: "POST",
-								credentials: "include",
-							}).then(() => window.location.reload())
+							window.location.href = "https://adoante.com/auth/logout?redirect_to=https://adoante.com"
 						}}
 					>
 						Logout
