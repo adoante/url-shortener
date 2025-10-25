@@ -6,23 +6,41 @@ import { ThemeProvider } from "@/components/theme-provider"
 import type { URLData } from "./lib/url-data-columns"
 import { columns } from "./lib/url-data-columns"
 
+// Fetch user's URLs from your API (typed)
 async function getData(): Promise<URLData[]> {
-	// Fetch data from your API here.
-	return [
-		{
-			created_at: "728ed52f",
-			clicks: 100,
-			full: "https://example.com",
-			short: "exmpl",
+	const res = await fetch("/user/urls", {
+		method: "GET",
+		credentials: "include", // sends Supabase SSR cookies
+		headers: {
+			"Accept": "application/json",
 		},
-	]
+	})
+
+	if (!res.ok) {
+		throw new Error(`Failed to fetch URLs: ${res.statusText}`)
+	}
+
+	const data: URLData[] = await res.json()
+	return data
 }
 
 export default function App() {
 	const [data, setData] = useState<URLData[]>([])
+	const [loading, setLoading] = useState(true)
+	const [error, setError] = useState<string | null>(null)
 
 	useEffect(() => {
-		void getData().then(setData)
+		void (async () => {
+			try {
+				const urls = await getData()
+				setData(urls)
+			} catch (err) {
+				if (err instanceof Error) setError(err.message)
+				else setError("Unknown error while fetching URLs")
+			} finally {
+				setLoading(false)
+			}
+		})()
 	}, [])
 
 	return (
@@ -43,7 +61,11 @@ export default function App() {
 
 					<hr className=""></hr>
 					<h3 className="md:text-2xl font-semibold text-lg">Your URLs</h3>
-					<DataTable columns={columns} data={data} />
+
+					{loading && <p className="text-gray-400">Loading URLs...</p>}
+					{error && <p className="text-red-500">Error: {error}</p>}
+
+					{!loading && !error && <DataTable columns={columns} data={data} />}
 				</section>
 			</main>
 		</ThemeProvider>
