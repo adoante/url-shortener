@@ -37,11 +37,12 @@ export default function App() {
 			} catch (err) {
 				if (err instanceof Error) setError(err.message)
 				else setError("Unknown error while fetching URLs")
+				console.log(error)
 			} finally {
 				setLoading(false)
 			}
 		})()
-	}, [])
+	}, [error])
 
 	return (
 		<ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
@@ -63,9 +64,8 @@ export default function App() {
 					<h3 className="md:text-2xl font-semibold text-lg">Your URLs</h3>
 
 					{loading && <p className="text-gray-400">Loading URLs...</p>}
-					{error && <p className="text-red-500">Error: {error}</p>}
 
-					{!loading && !error && <DataTable columns={columns} data={data} />}
+					{!loading && <DataTable columns={columns} data={data} />}
 				</section>
 			</main>
 		</ThemeProvider>

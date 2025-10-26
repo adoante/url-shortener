@@ -11,6 +11,10 @@ export const columns: ColumnDef<URLData>[] = [
 	{
 		accessorKey: "created_at",
 		header: "Created At",
+		cell: ({ row }) => {
+			const date = new Date(row.getValue("created_at"))
+			return date.toLocaleDateString()
+		}
 	},
 	{
 		accessorKey: "full",
