@@ -60,7 +60,7 @@ export function AuthCard() {
 					<Button
 						variant="outline"
 						onClick={() => {
-							window.location.href = "https://adoante.com/auth/logout?redirect_to=https://adoante.com"
+							window.location.href = "https://adoante.com/auth/logout"
 						}}
 					>
 						Logout

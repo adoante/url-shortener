@@ -3,6 +3,7 @@ import { DataTable } from "@/components/URLsTable"
 import { columns } from "../lib/url-data-columns"
 import type { URLData } from "../lib/url-data-columns"
 import { useEffect, useState } from "react"
+import { AuthCard } from "@/components/AuthCard"
 
 async function getData(): Promise<URLData[]> {
 	const res = await fetch("/user/urls", {
@@ -110,6 +111,10 @@ export default function Dashboard() {
 			{loading && <p className="text-gray-400">Loading URLs...</p>}
 			{!loading && <div className="w-full"><DataTable columns={columns} data={data} /></div>}
 			{error && <p className="text-red-400">Error: {error}</p>}
+
+			<div className="w-full flex items-center justify-center">
+				<AuthCard />
+			</div>
 		</main>
 	)
 }
