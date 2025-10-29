@@ -41,7 +41,10 @@ export function DummyShortenURLCard() {
 					</Field>
 
 					<Field orientation="horizontal">
-						<Button type="submit">
+						<Button
+							className="cursor-pointer"
+							type="submit"
+						>
 							Shorten
 						</Button>
 					</Field>

@@ -81,7 +81,11 @@ export function ShortenURLCard() {
 					</Field>
 
 					<Field orientation="horizontal">
-						<Button type="submit" disabled={loading}>
+						<Button
+							className="cursor-pointer"
+							type="submit"
+							disabled={loading}
+						>
 							{loading ? "Shortening..." : "Shorten"}
 						</Button>
 					</Field>

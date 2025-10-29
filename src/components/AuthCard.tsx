@@ -58,6 +58,7 @@ export function AuthCard() {
 					<p><strong>Email:</strong> {user.email}</p>
 					<p><strong>Provider:</strong> {user.app_metadata?.provider ?? "Unknown"}</p>
 					<Button
+						className="cursor-pointer"
 						variant="outline"
 						onClick={() => {
 							window.location.href = "https://adoante.com/auth/logout"
@@ -78,18 +79,21 @@ export function AuthCard() {
 			</CardHeader>
 			<CardContent className="flex flex-col gap-3">
 				<Button
+					className="cursor-pointer"
 					onClick={() => (window.location.href = authURL + "google")}
 					variant="outline"
 				>
 					Login with Google
 				</Button>
 				<Button
+					className="cursor-pointer"
 					onClick={() => (window.location.href = authURL + "github")}
 					variant="outline"
 				>
 					Login with GitHub
 				</Button>
 				<Button
+					className="cursor-pointer"
 					onClick={() => (window.location.href = authURL + "discord")}
 					variant="outline"
 				>
