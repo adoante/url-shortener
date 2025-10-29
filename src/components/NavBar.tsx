@@ -31,7 +31,7 @@ export default function NavBar() {
 	}
 
 	return (
-		<nav className="flex flex-row justify-between items-center mx-auto py-10 px-10 max-w-7xl">
+		<nav className="flex flex-row justify-between items-center mx-auto py-10 md:py-20 px-10 max-w-7xl">
 			<a href="/" className="font-bold text-2xl">
 				adoante
 			</a>
