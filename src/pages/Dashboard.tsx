@@ -17,7 +17,8 @@ async function getData(): Promise<URLData[]> {
 		throw new Error(`Failed to fetch URLs: ${res.statusText}`)
 	}
 
-	return res.json()
+	const data: URLData[] = await res.json()
+	return data
 }
 
 export default function Dashboard() {
