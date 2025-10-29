@@ -49,7 +49,7 @@ export function AuthCard() {
 
 	if (user) {
 		return (
-			<Card className="md:w-1/2">
+			<Card className="md:w-1/2 w-full">
 				<CardHeader>
 					<CardTitle>Welcome back!</CardTitle>
 					<CardDescription>Your account details</CardDescription>
@@ -60,7 +60,7 @@ export function AuthCard() {
 					<Button
 						variant="outline"
 						onClick={() => {
-							window.location.href = "https://adoante.com/auth/logout?redirect_to=https://adoante.com"
+							window.location.href = "https://adoante.com/auth/logout?redirect_to=https://adoante.com/dashboard"
 						}}
 					>
 						Logout
@@ -71,7 +71,7 @@ export function AuthCard() {
 	}
 
 	return (
-		<Card className="md:w-1/2">
+		<Card className="md:w-1/2 w-full">
 			<CardHeader>
 				<CardTitle>Login to your account</CardTitle>
 				<CardDescription>Choose one of the providers below.</CardDescription>

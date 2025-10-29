@@ -60,7 +60,7 @@ export function ShortenURLCard() {
 	}
 
 	return (
-		<form onSubmit={handleSubmit} className="md:w-1/2 border rounded-xl p-5">
+		<form onSubmit={handleSubmit} className="border rounded-xl p-5 bg-zinc-950">
 			<FieldGroup>
 				<FieldSet>
 					<FieldLegend>Shorten a URL</FieldLegend>
