@@ -26,7 +26,7 @@ export const columns: ColumnDef<URLData>[] = [
 					href={url}
 					target="_blank"
 					rel="noopener noreferrer"
-					className="text-blue-500 hover:underline flex items-center gap-1"
+					className="text-blue-400 hover:underline underline-offset-4 hover:text-white flex items-center gap-1"
 				>
 					{url}
 				</a>
@@ -38,14 +38,13 @@ export const columns: ColumnDef<URLData>[] = [
 		header: "Short URL",
 		cell: ({ row }) => {
 			const short = row.getValue("short") as string
-			// Adjust this base URL to match your deployed domain:
 			const shortLink = `https://adoante.com/${short}`
 			return (
 				<a
 					href={shortLink}
 					target="_blank"
 					rel="noopener noreferrer"
-					className="text-blue-500 hover:underline flex items-center gap-1"
+					className="text-blue-400 hover:underline underline-offset-4 hover:text-white flex items-center gap-1"
 				>
 					{shortLink}
 				</a>

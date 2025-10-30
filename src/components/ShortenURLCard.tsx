@@ -95,7 +95,7 @@ export function ShortenURLCard() {
 							Short URL created:{" "}
 							<a
 								href={`/${result}`}
-								className="underline text-blue-400"
+								className="underline underline-offset-4 hover:text-white text-blue-500"
 								target="_blank"
 								rel="noopener noreferrer"
 							>

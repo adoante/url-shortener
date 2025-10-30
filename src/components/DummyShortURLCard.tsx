@@ -11,16 +11,10 @@ import {
 import { Input } from "@/components/ui/input"
 
 export function DummyShortenURLCard() {
-	const [full, setFull] = useState("")
-	const [result, setResult] = useState<string | null>(null)
-
-	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-		e.preventDefault()
-		setResult("Login to get started!")
-	}
+	const result = "1"
 
 	return (
-		<form onSubmit={handleSubmit} className="border rounded-xl p-5 bg-zinc-950">
+		<form className="border rounded-xl p-5 bg-zinc-950">
 			<FieldGroup>
 				<FieldSet>
 					<FieldLegend>Shorten a URL</FieldLegend>
@@ -34,9 +28,7 @@ export function DummyShortenURLCard() {
 							id="full"
 							type="url"
 							placeholder="https://adolfogante.com"
-							value={full}
-							onChange={(e) => setFull(e.target.value)}
-							required
+							disabled
 						/>
 					</Field>
 
@@ -44,6 +36,7 @@ export function DummyShortenURLCard() {
 						<Button
 							className="cursor-pointer"
 							type="submit"
+							disabled
 						>
 							Shorten
 						</Button>
@@ -51,7 +44,15 @@ export function DummyShortenURLCard() {
 
 					{result && (
 						<p className="text-green-500 mt-2">
-							{result}
+							Short URL created:{" "}
+							<a
+								href={`/${result}`}
+								className="underline underline-offset-4 hover:text-white text-blue-400"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								https://adoante.com/{result}
+							</a>
 						</p>
 					)}
 
